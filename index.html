@@ -12,7 +12,86 @@
 </head>
 
 <body>
-
+    <div id="left-side">
+        <div id="sales-chart-field-outside">
+            <div id="sales-chart-field-inside">
+                <div id="time-series-sales-chart-container"></div>
+                <div id="sales-distribution-chart-container"></div>
+            </div>
+            <div id="left-shift" class="shift-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                     class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                          d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z" />
+                </svg>
+            </div>
+            <div id="right-shift" class="shift-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                     class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                          d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
+                </svg>
+            </div>
+        </div>
+        <div id="scrollable-section">
+            <div id="distribution-setting-field">
+                <label for="distribution-type">Distribution Type</label>
+                <select name="distribution-type" id="distribution-type-menu">
+                    <option value="normal-distribution">Normal</option>
+                    <option value="poisson-distribution">Poisson</option>
+                </select>
+                <div id="distribution-parameter-field"></div>
+            </div>
+        </div>
+        <div id="left-side-btn-field">
+            <button id="generate-sales-data-btn">Generate</button>
+        </div>
+    </div>
+    <div id="right-side">
+        <div id="analysis-chart-field">
+            <div id="cost-analysis-chart-container"></div>
+        </div>
+        <div id="scrollable-section">
+            <div id="inventory-policy-setting-field">
+                <label for="inventory-policy">Inventory Policy</label>
+                <select name="inventory-policy" id="inventory-policy-menu">
+                    <option value="qr-policy">QR Policy</option>
+                    <option value="ss-policy">Ss Policy</option>
+                </select>
+                <div id="inventory-policy-parameter-field"></div>
+            </div>
+            <div class="input-field-group">
+                <div id="cost-info-input-field">
+                    <label for="material-cost">Material Cost per Unit
+                        <input type="number" name="material-cost" id="material-cost-input">
+                    </label>
+                    <label for="shipping-cost">Shipping Cost per Order
+                        <input type="number" name="shipping-cost" id="shipping-cost-input">
+                    </label>
+                    <label for="shortage-cost">Shortage Cost per Unit
+                        <input type="number" name="shortage-cost" id="shortage-cost-input">
+                    </label>
+                    <label for="warehouse-cost">Warehouse Cost
+                        <input type="number" name="warehouse-cost" id="warehouse-cost-input">
+                    </label>
+                </div>
+                <div id="other-setting-input-field">
+                    <label for="max-ordering-unit">Max Ordering Unit
+                        <input type="number" name="max-ordering-unit" id="max-ordering-unit-input">
+                    </label>
+                    <label for="max-storage-unit">Max Storage Unit
+                        <input type="number" name="max-storage-unit" id="max-storage-unit-input">
+                    </label>
+                    <label for="auunal-percentage-rate">APR
+                        <input type="number" name="auunal-percentage-rate" id="auunal-percentage-rate-input">
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div id="right-side-btn-field">
+            <button id="analyze-btn">Analyze</button>
+        </div>
+    </div>
 </body>
 
 </html>

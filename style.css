@@ -1,0 +1,138 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    display: flex;
+}
+
+#left-side,
+#right-side {
+    position: relative;
+    width: 50%;
+}
+
+#sales-chart-field-outside,
+#analysis-chart-field {
+    position: relative;
+    height: 60%;
+    z-index: 1000;
+    background-color: #ddd;
+}
+
+#sales-chart-field-inside {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200%;
+    display: flex;
+    overflow-x: hidden;
+}
+
+#time-series-sales-chart-container,
+#sales-distribution-chart-container {
+    width: 50%;
+    height: 100%;
+    z-index: 100;
+    background-color: antiquewhite;
+}
+
+.shift-button {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 1000;
+    color: #888;
+}
+
+.shift-button:hover {
+    cursor: pointer;
+    color: #444;
+}
+
+#left-shift {
+    top: 45%;
+    left: 5px;
+    height: 10%;
+}
+
+#right-shift {
+    top: 45%;
+    right: 5px;
+    height: 10%;
+}
+
+#scrollable-section {
+    height: 30%;
+    overflow-y: auto;
+}
+
+#distribution-setting-field,
+#inventory-policy-setting-field,
+#cost-info-input-field,
+#other-setting-input-field {
+    margin: 10px;
+}
+
+#cost-info-input-field,
+#other-setting-input-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+}
+
+#cost-info-input-field>label,
+#other-setting-input-field>label {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#left-side-btn-field,
+#right-side-btn-field {
+    position: absolute;
+    bottom: 0;
+    height: 10%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-field-group {
+    display: flex;
+    min-height: 150px;
+}
+
+button {
+    padding: 8px 24px;
+    border: none;
+    border-radius: 100px;
+    opacity: 80%;
+    font-weight: bold;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 90%;
+}
+
+button:active {
+    opacity: 100%;
+}
+
+#generate-sales-data-btn {
+    background-color: #1AA260;
+    color: #FFF;
+}
+
+#analyze-btn {
+    background-color: #4C8BF5;
+    color: #FFF;
+}
+
+input {
+    width: 100px;
+}

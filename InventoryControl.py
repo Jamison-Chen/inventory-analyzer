@@ -8,6 +8,9 @@ shortageCostPerUnit = 2
 materialCostPerUnit = 1000
 APR = 0.073
 
+# 其他限制
+maxOrderLimit = 100
+
 
 def inventoryCostPerDay(c, i):
     return c * (i/365)
@@ -113,7 +116,7 @@ bestQ = 1
 def minTotalCost(historicalSalesData, initialInv):
     global L1, L2, L3, L4, bestQ, bestROfBestQ
     globalLowestCost = float('inf')
-    for q in range(1, 101):  # 此間廠商一次最多只能訂100個貨
+    for q in range(1, maxOrderLimit+1):  # 此間廠商一次最多只能訂100個貨
         l1 = []  # 存「不同R」之下的總成本
         l2 = []  # 存「不同R」之下的存貨成本
         l3 = []  # 存「不同R」之下的訂貨成本
