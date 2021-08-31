@@ -10,6 +10,7 @@ APR = 0.073
 
 # 其他限制
 maxOrderLimit = 100
+dayToSimulate = 500
 
 
 def inventoryCostPerDay(c, i):
@@ -17,7 +18,7 @@ def inventoryCostPerDay(c, i):
 
 
 # 生成並整數化歷史資料
-historicalSalesData = np.random.normal(loc=20, scale=5, size=500)
+historicalSalesData = np.random.normal(loc=20, scale=5, size=dayToSimulate)
 for i in range(len(historicalSalesData)):
     if historicalSalesData[i] < 0:
         historicalSalesData[i] = 0

@@ -1,3 +1,7 @@
+:root {
+    user-select: none;
+}
+
 body {
     height: 100vh;
     width: 100vw;
@@ -16,7 +20,7 @@ body {
     position: relative;
     height: 60%;
     z-index: 1000;
-    background-color: #ddd;
+    background-color: #FFF;
 }
 
 #sales-chart-field-inside {
@@ -26,7 +30,8 @@ body {
     height: 100%;
     width: 200%;
     display: flex;
-    overflow-x: hidden;
+    overflow: hidden;
+    transition-duration: 300ms;
 }
 
 #time-series-sales-chart-container,
@@ -34,7 +39,6 @@ body {
     width: 50%;
     height: 100%;
     z-index: 100;
-    background-color: antiquewhite;
 }
 
 .shift-button {
@@ -50,13 +54,13 @@ body {
     color: #444;
 }
 
-#left-shift {
+#left-shift-btn {
     top: 45%;
     left: 5px;
     height: 10%;
 }
 
-#right-shift {
+#right-shift-btn {
     top: 45%;
     right: 5px;
     height: 10%;
@@ -70,24 +74,29 @@ body {
 #distribution-setting-field,
 #inventory-policy-setting-field,
 #cost-info-input-field,
-#other-setting-input-field {
+.other-setting-input-field {
     margin: 10px;
 }
 
-#cost-info-input-field,
-#other-setting-input-field {
+#distribution-setting-field>div,
+#inventory-policy-setting-field>div {
+    margin-left: 20px;
+    padding-left: 10px;
+    border-left: 3px solid #aaa;
+}
+
+.input-field-group {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+}
+
+#cost-info-input-field,
+.other-setting-input-field {
     width: 50%;
 }
 
-#cost-info-input-field>label,
-#other-setting-input-field>label {
-    display: flex;
-    justify-content: space-between;
+#inventory-policy-description {
+    color: #888;
 }
-
 
 #left-side-btn-field,
 #right-side-btn-field {
@@ -101,9 +110,10 @@ body {
     align-items: center;
 }
 
-.input-field-group {
-    display: flex;
-    min-height: 150px;
+select {
+    border-radius: 10px;
+    padding: 2px 6px;
+    margin-left: 10px;
 }
 
 button {
@@ -133,6 +143,15 @@ button:active {
     color: #FFF;
 }
 
+label:nth-child(n):not(:nth-last-child(1)) {
+    display: block;
+    margin-bottom: 15px;
+}
+
 input {
-    width: 100px;
+    max-width: 100px;
+    padding: 2px 4px;
+    border-radius: 5px;
+    border: 1px solid #888;
+    margin-left: 10px;
 }
