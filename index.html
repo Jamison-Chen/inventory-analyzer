@@ -60,6 +60,7 @@
     <div id="right-side">
         <div id="analysis-chart-field">
             <div id="cost-analysis-chart-container"></div>
+            <div id="upper-analyzing-message-mask" class="hide">Analyzing...</div>
         </div>
         <div id="scrollable-section">
             <div id="inventory-policy-setting-field">
@@ -76,6 +77,9 @@
                     <label for="material-cost">Material Cost / Unit
                         <input type="number" name="material-cost" id="material-cost-input">
                     </label>
+                    <label for="auunal-percentage-rate">APR
+                        <input type="number" name="auunal-percentage-rate" id="auunal-percentage-rate-input">
+                    </label>
                     <label for="shipping-cost">Shipping Cost / Order
                         <input type="number" name="shipping-cost" id="shipping-cost-input">
                     </label>
@@ -87,14 +91,17 @@
                     </label>
                 </div>
                 <div class="other-setting-input-field">
+                    <label for="initial-inventory">Initial Inventory
+                        <input type="number" name="initial-inventory" id="initial-inventory-input">
+                    </label>
+                    <label for="min-ordering-unit">Min Ordering Unit
+                        <input type="number" name="min-ordering-unit" id="min-ordering-unit-input">
+                    </label>
                     <label for="max-ordering-unit">Max Ordering Unit
                         <input type="number" name="max-ordering-unit" id="max-ordering-unit-input">
                     </label>
                     <label for="max-storage-unit">Max Store Unit
                         <input type="number" name="max-storage-unit" id="max-store-unit-input">
-                    </label>
-                    <label for="auunal-percentage-rate">APR
-                        <input type="number" name="auunal-percentage-rate" id="auunal-percentage-rate-input">
                     </label>
                 </div>
             </div>

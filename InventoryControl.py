@@ -9,13 +9,9 @@ materialCostPerUnit = 1000
 APR = 0.073
 
 # 其他限制
+initialInventory = 80
 maxOrderLimit = 100
 dayToSimulate = 500
-
-
-def inventoryCostPerDay(c, i):
-    return c * (i/365)
-
 
 # 生成並整數化歷史資料
 historicalSalesData = np.random.normal(loc=20, scale=5, size=dayToSimulate)
@@ -46,8 +42,7 @@ def QRPolicy(Q, R, I, historicalSalesData):
             lack = dailySales - I
             I = 0  # 先賣出所有現存貨物
             # print("Lack of inventory!\t" + str(lack) + " unit(s) lacked\n")
-            shortageCost = shortageCostPerUnit * lack
-            dailyCostList[2] += shortageCost
+            dailyCostList[2] += shortageCostPerUnit * lack
         # print("Current Inventory: " + str(I) + "\n")
 
         # 判斷是否需要進貨，順便計算Ordering Cost
@@ -72,7 +67,7 @@ def QRPolicy(Q, R, I, historicalSalesData):
                 #       str(lack) + " unit(s) lacked\n")
                 # 因為在同一天發現，所以不再另計Shortage Cost
 
-        inventoryCost = inventoryCostPerDay(I * materialCostPerUnit, APR)
+        inventoryCost = (I * materialCostPerUnit) * APR/365
         dailyCostList[0] += inventoryCost
         historicalCostList.append(dailyCostList)
     # print("-----------------------------------------------")  # 所有歷史資料處理完畢
@@ -117,7 +112,7 @@ bestQ = 1
 def minTotalCost(historicalSalesData, initialInv):
     global L1, L2, L3, L4, bestQ, bestROfBestQ
     globalLowestCost = float('inf')
-    for q in range(1, maxOrderLimit+1):  # 此間廠商一次最多只能訂100個貨
+    for q in range(1, maxOrderLimit+1):
         l1 = []  # 存「不同R」之下的總成本
         l2 = []  # 存「不同R」之下的存貨成本
         l3 = []  # 存「不同R」之下的訂貨成本
@@ -138,7 +133,6 @@ def minTotalCost(historicalSalesData, initialInv):
             bestQ = q
             bestROfBestQ = bestR
             L1, L2, L3, L4 = l1, l2, l3, l4
-    # finalResult = {}
     message = "If Inventory are less than " + \
         str(bestROfBestQ+1)+" units, "+"order " + \
         str(bestQ)+" units. Otherwise, do nothing."
@@ -148,7 +142,7 @@ def minTotalCost(historicalSalesData, initialInv):
 
 
 def report():
-    plt.title(minTotalCost(historicalSalesData, 80))
+    plt.title(minTotalCost(historicalSalesData, initialInventory))
     plt.plot(range(bestQ), L1, color='r', label="Total Cost")
     plt.plot(range(bestQ), L2, color='g', label="Inventory Cost")
     plt.plot(range(bestQ), L3, color='b', label="Ordering Cost")
