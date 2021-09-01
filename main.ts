@@ -178,7 +178,10 @@ class Main {
             Main.maxStoreUnitInput.value = "500";
         }
     }
-    public static readDistributionSetting(selectedDistribution: any): number[] {
+    public static readDistributionSetting(selectedDistribution: {
+        param: any,
+        dataGeneratorFunction: Function
+    }): number[] {
         let params = [];
         if (Main.distributionTypeMenu instanceof HTMLSelectElement) {
             for (let eachParam in selectedDistribution.param) {
